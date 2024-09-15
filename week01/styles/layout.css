@@ -4,14 +4,14 @@
 }
 
 header {
-    padding: 2rem;
+    padding: 3rem;
     grid-column: 1 / 4;
     background-color: gray;
 }
 
 nav {
     /* margin: 0 auto 2rem; */
-    padding: 2rem;
+    padding: 1/2rem;
     grid-column: 1 / 4;
     background-color: black;
 }
