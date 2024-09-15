@@ -9,10 +9,11 @@ header {
     background-color: gray;
 }
 
+/* Fix nav for fitting inside header content */
 nav {
     /* margin: 0 auto 2rem; */
+    align-content: space-between;
     padding: 1/2rem;
-    grid-column: 1 / 4;
     background-color: black;
 }
 
