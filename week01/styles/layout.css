@@ -1,0 +1,69 @@
+.parent {
+    display: grid;
+    grid-template: auto 1fr auto / auto 1fr auto;
+}
+
+header {
+    padding: 2rem;
+    grid-column: 1 / 4;
+    background-color: gray;
+}
+
+nav {
+    /* margin: 0 auto 2rem; */
+    padding: 2rem;
+    grid-column: 1 / 4;
+    background-color: black;
+}
+
+.modern a {
+    flex: 1 1 100%;
+}
+
+.navigation {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navigation li {
+    flex: 1 1 auto;
+    /* difference between auto and 100% flex-basis - turn on link borders to view */
+}
+
+.navigation a {
+    display: block;
+    color: #eee;
+    padding: 0.75rem;
+    text-decoration: none;
+    text-align: center;
+    /* 	border: 1px dotted cyan; */
+}
+
+.navigation a:hover {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: yellow;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.left-side {
+    padding: 5rem;
+    grid-column: 1 / 3;
+    background-color: lightgray;
+}
+
+.right-side {
+    padding: 5rem;
+    grid-column: 3 / 4;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    grid-column: 1 / 4;
+    background-color: gray;
+}
