@@ -94,7 +94,7 @@ nav {
     grid-gap: 1rem;
     margin-top: 1rem;
     align-items: center;
-    
+
 }
 
 .alaska-info img.alaska-flag {
@@ -143,7 +143,8 @@ nav {
 }
 
 .card ul li a {
-    color: #0073e6;
+    color: black;
+    font-weight: bold;
     text-decoration: none;
 }
 
