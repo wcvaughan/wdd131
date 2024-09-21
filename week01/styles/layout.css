@@ -1,3 +1,27 @@
+/* Set Open Sans as the default font for the entire page */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    /* Semi-bold */
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    /* Normal */
+}
+
+.nav a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    /* Bold for navigation links */
+}
+
 .parent {
     display: grid;
     grid-template: auto 1fr auto / auto 1fr auto;
