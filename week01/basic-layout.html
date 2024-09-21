@@ -7,12 +7,11 @@
     <link rel="stylesheet" href="styles/layout.css">
     <title>Basic Layout - Chris Vaughan - WDD 131</title>
 </head>
-<!-- Move nav into header -->
 
 <body>
     <div class="parent">
-        <header class="section">Header Content
-
+        <header class="section">
+            Header Content
             <nav>
                 <ul class="navigation wrap">
                     <li><a href="#" title="Home">Home</a></li>
@@ -22,10 +21,13 @@
                 </ul>
             </nav>
         </header>
-        <main></main>
-        <!-- Make <main></main> and put below two classes inside -->
-        <div class="left-side" contenteditable>Main Content</div>
-        <div class="right-side" contenteditable>Aside Content</div>
+
+        <!-- Move left-side and right-side content inside the main element -->
+        <main class="main-section">
+            <div class="left-side" contenteditable>Main Content</div>
+            <div class="right-side" contenteditable>Aside Content</div>
+        </main>
+
         <footer class="section">Footer Content</footer>
     </div>
 </body>

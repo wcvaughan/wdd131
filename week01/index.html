@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals. Chris Vaughan. Basic layout, HTML structure, CSS grid, responsive navigation.">
+    <meta name="author" content="Chris Vaughan">
+    <link rel="stylesheet" href="styles/layout.css">
+    <title>Basic Layout - Chris Vaughan - WDD 131</title>
+</head>
+
+<body>
+    <div class="parent">
+        <header class="section">
+            <h1>WDD 131: Dynamic Web Fundamentals - Chris Vaughan
+            </h1>
+            <nav>
+                <ul class="navigation wrap">
+                    <li><a href="https://www.linkedin.com/in/william-vaughan-juniorsoftwareengineer"
+                            title="LinkedIn">LinkedIn</a></li>
+                    <li><a href="https://byui.instructure.com/" title="I-Learn">I-Learn</a></li>
+                    <li><a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/ether/12?lang=eng&id=p4#p4"
+                            title="Scripture">Scripture</a></li>
+                    <li><a href="#" title="Final Project">Final Project</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-section">
+            <!-- About Me Section -->
+            <section class="card left-side">
+                <h2>About Me</h2>
+                <p>Hello! My name is Chris Vaughan, and I'm passionate about web development and design. I enjoy
+                    creating interactive and dynamic web experiences. I am always learning new technologies and
+                    improving my skills.</p>
+                <img src="images\profile.png" alt="A picture of Chris Vaughan" style="width: 100%; max-width: 300px;">
+            </section>
+
+            <!-- Web Development Resources Section -->
+            <section class="card right-side">
+                <h2>Web Development Resources</h2>
+                <p>Here are some of my favorite web development resources:</p>
+                <ul>
+                    <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a> - Comprehensive
+                        documentation on HTML, CSS, and JavaScript.</li>
+                    <li><a href="https://css-tricks.com" target="_blank">CSS-Tricks</a> - Tips, tricks, and techniques
+                        for using CSS.</li>
+                    <li><a href="https://www.freecodecamp.org" target="_blank">freeCodeCamp</a> - Learn to code with
+                        tutorials and projects.</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer class="section">
+            <p>&copy; <span id="currentyear"></span> Chris Vaughan, Alaska, USA</p>
+            <p id="lastModified"></p>
+        </footer>
+    </div>
+</body>
+
+</html>
