@@ -1,0 +1,64 @@
+/* Set Open Sans as the default font for the entire page */
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    display: grid;
+}
+
+h1 {
+    text-align: center;
+    font-family: times, serif;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+/* Hero image section */
+.image-section {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-image {
+    background-image: url('images/place-mobile-photo.png');
+}
+
+/* Country Facts and Weather */
+.country-facts,
+.weather {
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    margin: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.country-facts ul,
+.weather ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+}
+
+.country-facts li,
+.weather li {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: gray;
+    border-radius: 4px;
+}
