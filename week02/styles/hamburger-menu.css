@@ -1,6 +1,7 @@
-/* Set Open Sans as the default font for the entire page */
-body {
-    font-family: 'Open Sans', sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 h1 {
@@ -17,27 +18,9 @@ h2 {
     margin: 1rem;
 }
 
-p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    /* Normal */
-}
-
-.nav a {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 700;
-    /* Bold for navigation links */
-}
-
-header {
-    display: grid;
-
-}
-
 nav {
-    width: 100%;
-    background-color: black;
-    border-radius: 4px;
+    max-width: 700px;
+    margin: 1rem auto;
 }
 
 /* small view navigation */
@@ -91,14 +74,43 @@ nav {
     /* just a wayfinding symbol for the user */
 }
 
-.wrap {
-    flex-wrap: wrap;
+.stuff {
+    margin: .5m;
+    border: 1px solid rgba(0, 0, 0, .1);
+    background-color: #bed;
+    max-width: 580px;
+    height: 100vh;
+
 }
 
-footer {
-    padding: 2rem;
-    text-align: center;
-    grid-column: 1 / 4;
-    background-color: gray;
-    border-radius: 4px;
+/* large view navigation ************************************/
+@media (min-width: 37.5em) {
+    h1 {
+        font-size: 2.5rem;
+        margin-left: 0;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    #menu {
+        display: none;
+        /* hide hamburger button */
+    }
+
+    .navigation {
+        flex-direction: row;
+    }
+
+    .navigation a {
+        display: block;
+        flex: 1 1 100%;
+    }
+
+    .stuff {
+        margin: 1rem auto;
+    }
 }
