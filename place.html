@@ -22,11 +22,12 @@
     </header>
 
     <main>
-        <section class="image-section" id="hero-section">
-            <div class="hero-image">
-                <img src="images/place-mobile-photo.png" alt="Scenic view of Alaska" id="hero">
-            </div>
-        </section>
+        <div class="hero">
+            <picture>
+                <source media="(min-width: 1000px)" srcset="images/place-large-screen-photo.webp">
+                <img src="images/place-mobile-photo-2.webp" alt="Alaska Landscape">
+            </picture>
+        </div>
 
         <section class="data-weather-container">
             <div class="country-facts">
@@ -46,7 +47,7 @@
             <div class="weather">
                 <h2>Weather</h2>
                 <figure>
-                    <img src="images/weather-icon.png" alt="weather-icon">
+                    <img src="images/weather-icon.svg" alt="weather-icon">
                 </figure>
                 <ul>
                     <li>Temperature: </li>

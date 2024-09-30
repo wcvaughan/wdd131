@@ -22,9 +22,10 @@
     }
 
     /* Hero image */
-    .image-section {
-        height: 300px;
-        /* Set a height for the hero section */
+    .hero img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
         background-size: cover;
         background-position: center;
     }
@@ -40,11 +41,9 @@
     .country-facts,
     .weather {
         flex: 1;
-        /* Make both sections equal width */
         padding: 1.5rem;
         background-color: #f9f9f9;
         margin: 0 1rem;
-        /* Margin between sections */
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
@@ -61,17 +60,17 @@
         margin: 0.5rem 0;
     }
 
+    .weather figure {
+        justify-content: right;
+        align-items: right;
+        margin: 0 auto;
+    }
+
     /* Footer styles */
     footer {
         padding: 2rem;
         text-align: center;
         background-color: gray;
         border-radius: 4px;
-    }
-
-    /* Media query for larger screens */
-    .hero-image {
-        background-image: url('images/place-large-screen-photo.png');
-        /* Change to larger image */
     }
 }
