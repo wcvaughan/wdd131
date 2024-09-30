@@ -9,37 +9,51 @@ footer {
     margin: 0 auto;
 }
 
-marquee {
+.banner {
+    border: 1px solid #bbb;
     padding: 1rem;
-    background-color: #eee;
-}
+    background-color: rgb(230, 243, 254);
+    font-weight: 700;
+    word-break: break-word;
+    text-align: center;}
 
 h1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 1rem 0;
 }
 
 main {
     display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-gap: 1.5rem;
+}
+
+section {
+    padding: 1rem;
 }
 
 h2 {
     color: navy;
     text-align: left;
+    grid-column: 1 / 3;
 }
 
-article p {
-    text-align: justify;
+h3 {
+    margin-bottom: .5rem;
 }
 
 .callout {
+    border:1px solid rgba(0, 0, 0, 0.1);
     color: black;
     background-color: gray;
+    grid-column: 1/3;
     padding: 1rem;
 }
 
 footer {
     margin-top: 1rem;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: .5rem 0;
     font-size: smaller;
-    text-align: right;
+    text-align: left;
 }
