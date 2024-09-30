@@ -1,32 +1,75 @@
 @media (min-width: 37.5em) {
+
+    /* Base styles */
+    body {
+        font-family: 'Open Sans', sans-serif;
+    }
+
     header {
-        display: grid;
-        grid-column: 1 / 4;
+        text-align: center;
         background-color: gray;
-        position: relative;
-        border-radius: 4px;
+        padding: 1rem;
     }
 
     h1 {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 2.5rem;
-        margin-left: 0;
-        text-align: center;
+        font-family: 'Times', serif;
+        font-size: 2rem;
     }
 
     h2 {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-align: center;
     }
 
-    figure {
-        display: grid;
-        align-items: center;
-        align-content: center;
-        text-align: center;
+    /* Hero image */
+    .image-section {
+        height: 300px;
+        /* Set a height for the hero section */
+        background-size: cover;
+        background-position: center;
     }
 
+    /* Data and Weather layout */
+    .data-weather-container {
+        display: flex;
+        justify-content: space-around;
+        /* Space elements evenly */
+        margin: 1rem;
+    }
+
+    .country-facts,
+    .weather {
+        flex: 1;
+        /* Make both sections equal width */
+        padding: 1.5rem;
+        background-color: #f9f9f9;
+        margin: 0 1rem;
+        /* Margin between sections */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .country-facts ul,
+    .weather ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .country-facts li,
+    .weather li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    /* Footer styles */
+    footer {
+        padding: 2rem;
+        text-align: center;
+        background-color: gray;
+        border-radius: 4px;
+    }
+
+    /* Media query for larger screens */
     .hero-image {
         background-image: url('images/place-large-screen-photo.png');
         /* Change to larger image */

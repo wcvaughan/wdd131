@@ -3,6 +3,12 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.temple-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
 h1 {
     text-align: left;
     font-family: times, serif;
@@ -30,13 +36,17 @@ p {
 }
 
 header {
-    display: grid;
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: gray;
+    padding: 1rem;
 }
 
 nav {
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    background-color: black;
     border-radius: 4px;
 }
 
@@ -61,9 +71,8 @@ nav {
 
 .navigation {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     list-style: none;
-    background-color: #333;
     color: #fff;
 }
 

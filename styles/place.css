@@ -27,10 +27,6 @@ h2 {
     background-position: center;
 }
 
-.hero-image {
-    background-image: url('images/place-mobile-photo.png');
-}
-
 /* Country Facts and Weather */
 .country-facts,
 .weather {
