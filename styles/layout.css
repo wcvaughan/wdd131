@@ -149,8 +149,9 @@ nav {
 .card img {
     max-width: 100%;
     height: auto;
+    display: block;
     border-radius: 8px;
-    justify-self: end;
+    margin: 0 auto;
 }
 
 /* Paragraph styling */
@@ -185,4 +186,27 @@ footer {
     grid-column: 1 / 4;
     background-color: gray;
     border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+    .parent {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        grid-template-rows: auto auto;
+    }
+
+    .main-section {
+        grid-template-columns: 1fr;
+    }
+
+    p {
+        font-size: small;
+    }
+
+    .card {
+        grid-template-columns: 1fr;
+    }
+
 }
