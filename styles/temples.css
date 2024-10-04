@@ -71,7 +71,7 @@ nav {
 
 .navigation {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     list-style: none;
     color: #fff;
 }

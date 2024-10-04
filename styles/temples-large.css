@@ -1,11 +1,11 @@
-@media (min-width: 18rem) {
+@media (min-width: 50rem) {
     .temple-images {
         grid-template-columns: 1fr 1fr;
         /* Two columns */
     }
 }
 
-@media (min-width: 37.5em) {
+@media (min-width: 70rem) {
     header {
         display: flex;
         justify-content: space-between;
@@ -15,9 +15,12 @@
     }
 
     .temple-images {
-        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 1rem;
+        gap: 0;
+    }
+
+    .temple-images img {
+        width: 100%;
     }
 
     h1 {
@@ -43,6 +46,7 @@
     .navigation {
         list-style: none;
         display: flex;
+        flex-direction: row;
         justify-content: space-between;
         padding: 1rem;
         gap: 2rem;
@@ -63,9 +67,6 @@
     }
 
     figure {
-        display: grid;
-        align-items: center;
-        align-content: center;
         text-align: center;
     }
 }
