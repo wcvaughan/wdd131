@@ -60,10 +60,10 @@
         margin: 0.5rem 0;
     }
 
-    .weather figure {
-        justify-content: right;
-        align-items: right;
-        margin: 0 auto;
+    .weather h2::after {
+        content: url('images/weather-icon.svg');
+        width: 50px;
+        height: auto;
     }
 
     /* Footer styles */

@@ -1,6 +1,15 @@
-/* Set Open Sans as the default font for the entire page */
+:root {
+    --primary-bg-color: #333;
+    /* Background color */
+    --secondary-text-color: #f9f9f9;
+    /* Text color */
+}
+
+
 body {
     font-family: 'Open Sans', sans-serif;
+    background-color: var(--primary-bg-color);
+    color: var(--secondary-text-color);
 }
 
 header {
