@@ -112,19 +112,19 @@ function filterByYear(temples, year, comparison) {
 }
 
 oldLink.addEventListener("click", () => {
-  createTempleCard(filterByYear(temples, 1925, 'older'));
+  createTempleCard(filterByYear(temples, 1900, 'older'));
   });
 
 newLink.addEventListener("click", () => {
-  createTempleCard(filterByYear(temples, 1925, 'newer'));
+  createTempleCard(filterByYear(temples, 2000, 'newer'));
 });
 
 largeLink.addEventListener("click", () => {
-  createTempleCard(temples.filter(temple => temple.area > 12000));
+  createTempleCard(temples.filter(temple => temple.area > 90000));
 });
 
 smallLink.addEventListener("click", () => {
-  createTempleCard(temples.filter(temple => temple.area < 12000));
+  createTempleCard(temples.filter(temple => temple.area < 10000));
 });
 
 const templeImagesContainer = document.querySelector(".temple-images");
