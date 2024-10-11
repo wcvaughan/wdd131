@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 - Temple Album</title>
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals. Chris Vaughan. Temples page. Large media vs small media styling and hamburger menu">
+    <meta name="author" content="Chris Vaughan">
+    <link rel="stylesheet" href="styles/filtered-temple.css">
+    <link rel="stylesheet" href="styles/filtered-temple-large.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="scripts/filtered-temple.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Temple Album</h1>
+        <nav>
+            <button type="button" id="menu"></button>
+            <ul class="navigation wrap">
+                <li><a href="#" title="Home" id="home">Home</a></li>
+                <li><a href="#" title="Old" id="old">Old</a></li>
+                <li><a href="#" title="New" id="new">New</a></li>
+                <li><a href="#" title="Large" id="large">Large</a></li>
+                <li><a href="#" title="Small" id="small">Small</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Home</h2>
+        <div class="temple-images">
+            <figure>
+            </figure>
+        </div>
+    </main>
+    <footer class="section">
+        <p>&copy; <span id="currentyear"></span> Chris Vaughan, Alaska, USA</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>

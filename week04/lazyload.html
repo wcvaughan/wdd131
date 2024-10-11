@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 - Lazy Load</title>
+    <meta name="description"
+    content="WDD 131 - Dynamic Web Fundamentals. Chris Vaughan. Lazy Loading"><meta name="author" content="Chris Vaughan">
+    <link href="styles/lazyload.css" rel="stylesheet" type="text/css">
+    <script src="scripts/lazyload.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>
+            Lazy Loading
+        </h1>
+    </header>
+    <main>
+        <img loading="lazy" src="images/nature-portrait.jpg" alt="tree in field" class="lazy-image">
+        <img loading="lazy" src="images/nature-portrait.jpg" alt="tree in field" class="lazy-image">
+        <img loading="lazy" src="images/nature-portrait.jpg" alt="tree in field" class="lazy-image">
+        <img loading="lazy" src="images/nature-portrait.jpg" alt="tree in field" class="lazy-image">
+        <img loading="lazy" src="images/nature-portrait.jpg" alt="tree in field" class="lazy-image">
+        <img loading="lazy" src="images/nature-portrait.jpg" alt="tree in field" class="lazy-image">
+    </main>
+    <footer class="section">
+        <p>&copy; <span id="currentyear"></span> Chris Vaughan, Alaska, USA</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+</html>

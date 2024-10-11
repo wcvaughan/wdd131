@@ -1,0 +1,113 @@
+/* Set Open Sans as the default font for the entire page */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.temple-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+h1 {
+    text-align: left;
+    font-family: times, serif;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: navy;
+    text-align: left;
+    margin: 1rem;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    /* Normal */
+}
+
+.nav a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    /* Bold for navigation links */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: gray;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 4px;
+}
+
+/* small view navigation */
+#menu {
+    font-size: 1.5rem;
+    border: 0;
+    background: none;
+    color: #000;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#menu::before {
+    content: "☰";
+}
+
+#menu.open::before {
+    content: "❎";
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    color: #000;
+}
+
+.navigation a {
+    display: none;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.navigation a:hover {
+    background-color: #bbb;
+    color: #333;
+    font-weight: 700;
+}
+
+/* when the button is clicked - the open class is toggled (added/removed) */
+.open a {
+    display: block;
+}
+
+.active::before {
+    content: "📍";
+    /* just a wayfinding symbol for the user */
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    grid-column: 1 / 4;
+    background-color: gray;
+    border-radius: 4px;
+}

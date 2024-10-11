@@ -1,0 +1,43 @@
+h1 {
+    font-size: x-large;
+    font-weight: bolder;
+}
+  
+/* Animation keyframes */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      background-color: black;
+    }
+    100% {
+      opacity: 1;
+      background-color: transparent;
+    }
+}
+  
+/* Initial state before image is loaded */
+.lazy-image {
+    opacity: 0; /* Hidden initially */
+    background-color: black; /* Fades from black */
+    transition: opacity 2s ease-in-out; /* Smooth transition over 2 seconds */
+}
+  
+/* When the image is fully loaded */
+.lazy-image.loaded {
+    opacity: 1; /* Faded in once loaded */
+    animation: fadeIn 2s ease-in-out forwards; /* Apply keyframes */
+}
+
+img {
+    display: block;
+    width: 400px;
+    height: 600px;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    grid-column: 1 / 4;
+    background-color: gray;
+    border-radius: 4px;
+}
