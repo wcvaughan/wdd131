@@ -16,11 +16,12 @@
 
     .temple-images {
         grid-template-columns: 1fr 1fr 1fr;
-        gap: 0;
+        gap: 1rem;
     }
 
     .temple-images img {
         width: 100%;
+        border: 1px ridge black;
     }
 
     h1 {

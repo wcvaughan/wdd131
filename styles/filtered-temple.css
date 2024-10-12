@@ -9,8 +9,24 @@ body {
     gap: 1rem;
 }
 
+section {
+    border: 1px solid black;
+    border-radius: 8px;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(109, 69, 69, 0.178);
+}
+
+section img {
+    border-radius: 8px;
+    border: 1px ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.836);
+    width: 100%;
+}
+
 h1 {
-    text-align: left;
+    text-align: center;
     font-family: times, serif;
     font-size: 1.5rem;
     margin-left: 1rem;

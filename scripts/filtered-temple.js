@@ -104,6 +104,16 @@ const temples = [
 
 createTempleCard(temples);
 
+function showAllTemples() {
+  createTempleCard(temples);
+}
+
+const homeLink = document.getElementById('home');
+homeLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    showAllTemples();
+});
+
 function filterByYear(temples, year, comparison) {
   return temples.filter(temple => {
       const templeYear = parseInt(temple.dedicated.split(",")[0], 10);
@@ -111,21 +121,32 @@ function filterByYear(temples, year, comparison) {
   });
 }
 
-oldLink.addEventListener("click", () => {
-  createTempleCard(filterByYear(temples, 1900, 'older'));
-  });
 
-newLink.addEventListener("click", () => {
-  createTempleCard(filterByYear(temples, 2000, 'newer'));
-});
+const filterTemples = (criteria) => {
+  let filteredTemples;
+  switch (criteria) {
+      case 'old':
+          filteredTemples = filterByYear(temples, 1900, 'older');
+          break;
+      case 'new':
+          filteredTemples = filterByYear(temples, 2000, 'newer');
+          break;
+      case 'large':
+          filteredTemples = temples.filter(temple => temple.area > 90000);
+          break;
+      case 'small':
+          filteredTemples = temples.filter(temple => temple.area < 10000);
+          break;
+      default:
+          filteredTemples = temples; // show all if no criteria
+  }
+  createTempleCard(filteredTemples);
+};
 
-largeLink.addEventListener("click", () => {
-  createTempleCard(temples.filter(temple => temple.area > 90000));
-});
-
-smallLink.addEventListener("click", () => {
-  createTempleCard(temples.filter(temple => temple.area < 10000));
-});
+document.querySelector("#old").addEventListener("click", () => filterTemples('old'));
+document.querySelector("#new").addEventListener("click", () => filterTemples('new'));
+document.querySelector("#large").addEventListener("click", () => filterTemples('large'));
+document.querySelector("#small").addEventListener("click", () => filterTemples('small'));
 
 const templeImagesContainer = document.querySelector(".temple-images");
 
