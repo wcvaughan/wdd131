@@ -104,3 +104,8 @@ main {
 .reviewform input:required:valid {
     border-right: solid 8px green;
 }
+
+.reviewform textarea {
+    display: block;
+    background-color: #eee;
+}
