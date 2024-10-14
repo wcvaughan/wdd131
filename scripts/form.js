@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const productSelect = document.getElementById('product');
   console.log('Product select element: ', productSelect);
 
+
   const products = [
     { id: "fc-1888", name: "flux capacitor", averagerating: 4.5 },
     { id: "fc-2050", name: "power laces", averagerating: 4.7 },
@@ -23,6 +24,25 @@ document.addEventListener('DOMContentLoaded', () => {
     option.textContent = product.name;
     productSelect.appendChild(option);
   });
+
+  const button = document.getElementById('postreview');
+
+  const handleClick = () => {
+
+    let visitCount = localStorage.getItem('visitCount');
+
+    if (visitCount === null) {
+      visitCount = 0;
+    } else {
+      visitCount = parseInt(visitCount);
+    }
+    visitCount += 1;
+
+    localStorage.setItem('visitCount', visitCount);
+  }
+
+  button.addEventListener('click', handleClick);
+
 });
 
 
