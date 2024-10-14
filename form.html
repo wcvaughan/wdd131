@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WDD 131 - Product Review Form</title>
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals. Chris Vaughan. Product Review Form">
+    <meta name="author" content="Chris Vaughan">
+    <link rel="stylesheet" href="styles/form-large.css">
+    <link rel="stylesheet" href="styles/form-normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="scripts/form.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Product Review</h1>
+    </header>
+    <main>
+
+        <form method="get" class="reviewform">
+            <fieldset>
+                <label>Product Name
+                    <select name="subject" required>
+                        <option value="">Select a Product &#9662;</option>
+                        <option value=""></option>
+                    </select>
+                </label>
+
+                <div>Overall Rating</div>
+                <label class="radio"><input type="radio" name="rating" value="onestar"> &#9733;</label>
+                <label class="radio"><input type="radio" name="rating" value="twostars"> &#9733;&#9733;</label>
+                <label class="radio"><input type="radio" name="rating" value="threestars"> &#9733;&#9733;&#9733;</label>
+                <label class="radio"><input type="radio" name="rating" value="fourstars">
+                    &#9733;&#9733;&#9733;&#9733;</label>
+                <label class="radio"><input type="radio" name="rating" value="fivestars">
+                    &#9733;&#9733;&#9733;&#9733;&#9733;</label>
+
+                <label>Date of Installation <input type="date" name="installationDate"></label>
+
+                <div>Which features did you find useful in the product?<br>(check all that apply)</div>
+                <label><input type="checkbox" name="durability" value="yes"> Durability</label>
+                <label><input type="checkbox" name="ease" value="yes"> Ease of Use</label>
+                <label><input type="checkbox" name="performance" value="yes"> Performance</label>
+                <label><input type="checkbox" name="design" value="yes"> Design</label>
+
+                <label>Written Review (Optional) <input type="text" name="writtenreview"></label>
+                <label>Your Name (Optional) <input type="text" name="consumername"></label>
+            </fieldset>
+
+            <input type="submit" value="Post Review">
+        </form>
+
+    </main>
+    <footer class="section">
+        <p>&copy; <span id="currentyear"></span> Chris Vaughan, Alaska, USA</p>
+        <p id="lastModified"></p>
+    </footer>
+</body>
+
+</html>
