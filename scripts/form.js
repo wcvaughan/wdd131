@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { id: "jj-1969", name: "warp equalizer", averagerating: 5.0 }
   ];
 
-  products.array.forEach(product => {
+  products.forEach(product => {
     console.log('Adding product:', product);
     const option = document.createElement('option');
     option.value = product.id;
