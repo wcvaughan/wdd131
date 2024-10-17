@@ -1,0 +1,37 @@
+:root {
+    --primary-color: #8B8C4A; /* Olive Green */
+    --secondary-color: #F5F5DC; /* Beige */
+    --accent-color: #556B2F; /* Dark Olive Green */
+    --text-color: #6B4C3A; /* Brown */
+    --background-color: #F0F0F0; /* Soft White */
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+}
+
+button, .accent-element {
+    font-family: 'Merriweather', serif;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Section Styling */
