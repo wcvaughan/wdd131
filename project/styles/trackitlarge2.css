@@ -1,0 +1,66 @@
+/* For screens larger than 768px (tablets, desktops) */
+@media screen and (min-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    header {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem; /* Larger heading for desktops */
+    }
+
+    /* Navigation menu for larger screens */
+    .navigation-wrap {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 10px 40px;
+    }
+
+    .main-info-box, .info-bar {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Footer styling for larger screens */
+    footer {
+        padding: 30px;
+    }
+
+    section {
+        margin-bottom: 40px;
+    }
+}
+
+/* For extra-large screens (desktops > 1200px) */
+@media screen and (min-width: 1200px) {
+    header {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Even larger heading for big screens */
+    }
+
+    /* Navigation wraps further apart */
+    .navigation-wrap {
+        justify-content: space-evenly;
+    }
+
+    /* Max-width on containers for better readability */
+    .main-info-box, .info-bar {
+        max-width: 1200px;
+        padding: 30px;
+    }
+
+    footer {
+        padding: 40px;
+    }
+
+    p {
+        font-size: 1.2rem; /* Slightly larger text for readability */
+    }
+}
