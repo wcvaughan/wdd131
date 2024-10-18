@@ -41,17 +41,17 @@ function createMainInfoCard(transactions) {
     transactions.forEach(transaction => {
         let card = document.createElement("section");
 
-        let amount = document.createElement("p");
-        amount.textContent = `$${transaction.amount.toFixed(2)}`;
-
         let date = document.createElement("p");
         date.textContent = `${transaction.date}`;
+        
+        let amount = document.createElement("p");
+        amount.textContent = `$${transaction.amount.toFixed(2)}`;
 
         let category = document.createElement("p");
         category.textContent = `${transaction.category}`;
 
-        card.appendChild(amount);
         card.appendChild(date);
+        card.appendChild(amount);
         card.appendChild(category);
         mainInfoBox.appendChild(card);
     });
