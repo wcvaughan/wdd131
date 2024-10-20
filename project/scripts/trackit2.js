@@ -25,6 +25,7 @@ homeLink.addEventListener('click', (event) => {
     event.preventDefault();
     createMainInfoCard(transactions);
     createInfoBar(transactions);
+    createExpenseFillableForm();
 });
 
 reportsLink.addEventListener('click', (event) => {
@@ -43,7 +44,7 @@ function createMainInfoCard(transactions) {
 
         let date = document.createElement("p");
         date.textContent = `${transaction.date}`;
-        
+
         let amount = document.createElement("p");
         amount.textContent = `$${transaction.amount.toFixed(2)}`;
 
@@ -55,6 +56,80 @@ function createMainInfoCard(transactions) {
         card.appendChild(category);
         mainInfoBox.appendChild(card);
     });
+
+}
+
+
+function createExpenseFillableForm() {
+    const form = document.createElement('form');
+    form.setAttribute('id', 'expense-form');
+    form.setAttribute('action', '#');
+    form.setAttribute('method', 'GET');
+
+    //category label
+    const categoryLabel = document.createElement('label');
+    categoryLabel.setAttribute('for', 'expense-category');
+    categoryLabel.textContent = 'Category: '
+
+    //category input
+    const categorySelect = document.createElement('select');
+    categorySelect.setAttribute('name', 'subject');
+    categorySelect.setAttribute('id', 'category');
+    categorySelect.setAttribute('required', 'true');
+
+    //default select
+    const defaultOption = document.createElement('option')
+    defaultOption.setAttribute('value', ' ');
+    defaultOption.textContent = 'Select a Category';
+    categorySelect.appendChild(defaultOption);
+
+    const categories = ["Groceries", "Rent", "Entertainment", "Utilities", "Gas/Auto"];
+    categories.forEach(category => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = category;
+        categorySelect.appendChild(option);
+    });
+
+    //date label
+    const expenseDateLabel = document.createElement('label');
+    expenseDateLabel.setAttribute('for', 'expense-date');
+    expenseDateLabel.textContent = 'Date of expense: ';
+
+    //date input
+    const expenseDateInput = document.createElement('input');
+    expenseDateInput.setAttribute('type', 'date');
+    expenseDateInput.setAttribute('id', 'expense-date');
+    expenseDateInput.setAttribute('name', 'expensedate');
+    expenseDateInput.setAttribute('required', 'true');
+
+    //expense amount label
+    const amountLabel = document.createElement('label');
+    amountLabel.setAttribute('for', 'expense-amount');
+    amountLabel.textContent = 'Expense Amount: ';
+
+    //expense input
+    const amountInput = document.createElement('input');
+    amountInput.setAttribute('type', 'number');
+    amountInput.setAttribute('id', 'expense-number');
+    amountInput.setAttribute('name', 'expenseamount')
+    amountInput.setAttribute('required', 'true');
+
+    //submit button
+    const submitButton = document.createElement('button');
+    submitButton.setAttribute('type', 'submit');
+    submitButton.textContent = 'Post Expense';
+
+    form.appendChild(categoryLabel);
+    form.appendChild(categorySelect);
+    form.appendChild(expenseDateLabel);
+    form.appendChild(expenseDateInput);
+    form.appendChild(amountLabel);
+    form.appendChild(amountInput);
+    form.appendChild(submitButton);
+
+    const mainInfoBox = document.querySelector('.main-info-box');
+    mainInfoBox.appendChild(form);
 }
 
 function createInfoBar(transactions) {
@@ -68,20 +143,7 @@ function createInfoBar(transactions) {
     infoBar.appendChild(totalAmount);
 }
 
-const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-]
+
 
 // Reports info card
 function createReportsInfoCard(transactions) {
@@ -98,30 +160,16 @@ function createReportsInfoCard(transactions) {
     let chartCanvas = document.createElement("canvas");
     chartCanvas.id = "spendingChart";
     chartSection.appendChild(chartCanvas);
-    
+
     mainInfoBox.appendChild(chartSection);
 
     renderBarChart(transactions);
-
-    // Time period dropdown
-    let timePeriodHeading = document.createElement("h3");
-    timePeriodHeading.textContent = "Time Period: ";
-    let timePeriodDropDown = document.createElement("select");
-    months.forEach(month => {
-        let option = document.createElement("option");
-        option.value = month;
-        option.textContent = month;
-        timePeriodDropDown.appendChild(option);
-    });
-
-    mainInfoBox.appendChild(timePeriodHeading);
-    mainInfoBox.appendChild(timePeriodDropDown);
 
     // Expense Summary
     let summaryHeading = document.createElement("h3");
     summaryHeading.textContent = "Expense Summary";
     mainInfoBox.appendChild(summaryHeading);
-    
+
     let totalExpenses = transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
     let averageDaily = totalExpenses / 30;
 
@@ -159,7 +207,7 @@ function renderBarChart(transactions) {
 
     // Group transactions by category and sum the amounts
     const categoryData = sumCategories(transactions);
-    
+
     const categories = categoryData.map(item => item.category);
     const amounts = categoryData.map(item => item.total);
 
