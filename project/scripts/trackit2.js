@@ -46,32 +46,32 @@ function createMainInfoCard(transactions) {
         let category = document.createElement("p");
         category.textContent = `${transaction.category}`;
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = '❌';
-        deleteButton.classList.add('delete');
+        // const deleteButton = document.createElement('button');
+        // deleteButton.textContent = '❌';
+        // deleteButton.classList.add('delete');
 
-        deleteButton.addEventListener('click', () => {
-            deleteTransaction(index);
-        })
+        // deleteButton.addEventListener('click', () => {
+        //     deleteTransaction(index);
+        // })
 
         card.appendChild(date);
         card.appendChild(amount);
         card.appendChild(category);
-        card.appendChild(deleteButton);
+        // card.appendChild(deleteButton);
         mainInfoBox.appendChild(card);
 
     });
 }
 
-function deleteTransaction(index) {
-    let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+// function deleteTransaction(index) {
+//     let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
-    transactions.splice(index, 1);
+//     transactions.splice(index, 1);
 
-    localStorage.setItem('transactions', JSON.stringify(transactions));
+//     localStorage.setItem('transactions', JSON.stringify(transactions));
 
-    loadTransactionsFromLocalStorage();
-}
+//     loadTransactionsFromLocalStorage();
+// }
 
 function createInfoBar(transactions) {
     const infoBar = document.querySelector(".info-bar");
