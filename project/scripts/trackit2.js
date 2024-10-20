@@ -4,14 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lastModifiedDate = document.lastModified;
     document.getElementById('lastModified').textContent = `Last modified: ${lastModifiedDate}`;
+
+    loadTransactionsFromLocalStorage();
 });
 
-const transactions = [
-    { amount: 50.75, date: '2024-10-15', category: 'Groceries' },
-    { amount: 150.00, date: '2024-10-16', category: 'Rent' },
-    { amount: 20.99, date: '2024-10-17', category: 'Entertainment' },
-    { amount: 35.49, date: '2024-10-17', category: 'Utilities' }
-];
 
 const homeLink = document.getElementById('home');
 const reportsLink = document.getElementById('reports');
@@ -23,15 +19,14 @@ function clearInfoBar() {
 
 homeLink.addEventListener('click', (event) => {
     event.preventDefault();
-    createMainInfoCard(transactions);
-    createInfoBar(transactions);
-    createExpenseFillableForm();
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    loadTransactionsFromLocalStorage(transactions);
 });
 
 reportsLink.addEventListener('click', (event) => {
     event.preventDefault();
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
     createReportsInfoCard(transactions);
-    clearInfoBar();
 });
 
 // Home page card
@@ -59,6 +54,16 @@ function createMainInfoCard(transactions) {
 
 }
 
+function createInfoBar(transactions) {
+    const infoBar = document.querySelector(".info-bar");
+    infoBar.innerHTML = ""; // Clear previous content
+
+    let totalExpenses = transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
+    let totalAmount = document.createElement("p");
+    totalAmount.textContent = `Total Expenses: $${totalExpenses.toFixed(2)}`;
+
+    infoBar.appendChild(totalAmount);
+}
 
 function createExpenseFillableForm() {
     const form = document.createElement('form');
@@ -130,19 +135,34 @@ function createExpenseFillableForm() {
 
     const mainInfoBox = document.querySelector('.main-info-box');
     mainInfoBox.appendChild(form);
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        addTransactionToLocalStorage(categorySelect.value, expenseDateInput.value, parseFloat(amountInput.value));
+        loadTransactionsFromLocalStorage();
+    });
 }
 
-function createInfoBar(transactions) {
-    const infoBar = document.querySelector(".info-bar");
-    infoBar.innerHTML = ""; // Clear previous content
+function addTransactionToLocalStorage(category, date, amount) {
+    let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
-    let totalExpenses = transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
-    let totalAmount = document.createElement("p");
-    totalAmount.textContent = `Total Expenses: $${totalExpenses.toFixed(2)}`;
+    const newTransaction = {
+        category: category,
+        date: date,
+        amount: amount
+    };
 
-    infoBar.appendChild(totalAmount);
+    transactions.push(newTransaction);
+
+    localStorage.setItem('transactions', JSON.stringify(transactions));
 }
 
+function loadTransactionsFromLocalStorage() {
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    createMainInfoCard(transactions);
+    createInfoBar(transactions);
+    createExpenseFillableForm();
+}
 
 
 // Reports info card
