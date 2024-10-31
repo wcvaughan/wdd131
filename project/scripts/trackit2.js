@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const homeLink = document.getElementById('home');
+const transactionLink = document.getElementById('transaction');
 const reportsLink = document.getElementById('reports');
 
 function clearInfoBar() {
@@ -19,20 +20,22 @@ function clearInfoBar() {
 
 homeLink.addEventListener('click', (event) => {
     event.preventDefault();
-    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
-    loadTransactionsFromLocalStorage(transactions);
+    const transactions = loadTransactionsFromLocalStorage();
+    createMainInfoCard(transactions);
+    createInfoBar(transactions);
+    createExpenseFillableForm();
 });
 
 transactionLink.addEventListener('click', (event) => {
     event.preventDefault();
-    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
-    loadTransactionsFromLocalStorage(transactions);
+    const transactions = loadTransactionsFromLocalStorage();
+    createInfoBar(transactions);
     createTransactionInfoCard(transactions);
 });
 
 reportsLink.addEventListener('click', (event) => {
     event.preventDefault();
-    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    const transactions = loadTransactionsFromLocalStorage();
     createReportsInfoCard(transactions);
 });
 
@@ -91,7 +94,7 @@ function createInfoBar(transactions) {
     infoBar.appendChild(totalAmount);
 }
 
-function createTransactionInfoCard() {
+function createTransactionInfoCard(transactions) {
     const mainInfoBox = document.querySelector(".main-info-box");
     mainInfoBox.innerHTML = "";
 
@@ -117,12 +120,13 @@ function createTransactionInfoCard() {
     endDateInput.setAttribute('id', 'end-date');
 
     //Filter button
-    const filterButton = doc.createElement('button');
+    const filterButton = document.createElement('button');
     filterButton.textContent = 'Filter By Date';
     filterButton.addEventListener('click', () => {
         const startDate = new Date(startDateInput.value);
         const endDate = new Date(endDateInput.value);
         const filteredTransactions = filterTransactionsByDate(transactions, startDate, endDate);
+        console.log('dates filtered');
         displayTransactions(filteredTransactions);
     });
 
@@ -145,14 +149,15 @@ function filterTransactionsByDate(transactions, startDate, endDate) {
 }
 
 //display transations
-function displayTransactions() {
+function displayTransactions(transactions) {
     const mainInfoBox = document.querySelector('.main-info-box');
+    
 
     transactions.forEach(transaction => {
         let card = document.createElement('section');
 
         let date = document.createElement('p');
-        date.textContent = `${transaction.data}`;
+        date.textContent = `${transaction.date}`;
 
         let amount = document.createElement('p');
         amount.textContent = `$${transaction.amount.toFixed(2)}`;
@@ -260,10 +265,7 @@ function addTransactionToLocalStorage(category, date, amount) {
 }
 
 function loadTransactionsFromLocalStorage() {
-    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
-    createMainInfoCard(transactions);
-    createInfoBar(transactions);
-    createExpenseFillableForm();
+    return JSON.parse(localStorage.getItem('transactions')) || [];
 }
 
 
