@@ -123,6 +123,7 @@ function createTransactionInfoCard(transactions) {
     const filterButton = document.createElement('button');
     filterButton.textContent = 'Filter By Date';
     filterButton.addEventListener('click', () => {
+        clearTransactionList();
         const startDate = new Date(startDateInput.value);
         const endDate = new Date(endDateInput.value);
         const filteredTransactions = filterTransactionsByDate(transactions, startDate, endDate);
@@ -137,7 +138,9 @@ function createTransactionInfoCard(transactions) {
     filterSection.appendChild(filterButton);
     mainInfoBox.appendChild(filterSection);
 
-    displayTransactions(transactions);
+    const transactionListContainer = document.createElement('div');
+    transactionListContainer.classList.add("transaction-list");
+    mainInfoBox.appendChild(transactionListContainer);
 }
 
 //transaction filter by date
@@ -148,10 +151,16 @@ function filterTransactionsByDate(transactions, startDate, endDate) {
     });
 }
 
+function clearTransactionList() {
+    const transactionListContainer = document.querySelector('.transaction-list');
+    transactionListContainer.innerHTML = '';
+}
+
 //display transations
 function displayTransactions(transactions) {
-    const mainInfoBox = document.querySelector('.main-info-box');
-    
+
+    const transactionListContainer = document.querySelector('.transaction-list');
+    transactionListContainer.innerHTML = ''; // Clear previous list to avoid duplicates
 
     transactions.forEach(transaction => {
         let card = document.createElement('section');
@@ -168,7 +177,7 @@ function displayTransactions(transactions) {
         card.appendChild(date);
         card.appendChild(amount);
         card.appendChild(category);
-        mainInfoBox.appendChild(card);
+        transactionListContainer.appendChild(card);
     });
 }
 
