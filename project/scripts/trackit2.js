@@ -23,6 +23,13 @@ homeLink.addEventListener('click', (event) => {
     loadTransactionsFromLocalStorage(transactions);
 });
 
+transactionLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+    loadTransactionsFromLocalStorage(transactions);
+    createTransactionInfoCard(transactions);
+});
+
 reportsLink.addEventListener('click', (event) => {
     event.preventDefault();
     const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
@@ -82,6 +89,82 @@ function createInfoBar(transactions) {
     totalAmount.textContent = `Total Expenses: $${totalExpenses.toFixed(2)}`;
 
     infoBar.appendChild(totalAmount);
+}
+
+function createTransactionInfoCard() {
+    const mainInfoBox = document.querySelector(".main-info-box");
+    mainInfoBox.innerHTML = "";
+
+    const filterSection = document.createElement('section');
+    filterSection.classList.add("filter-section");
+
+    //start date
+    const startDateLabel = document.createElement('label');
+    startDateLabel.setAttribute('for', 'start-date');
+    startDateLabel.textContent = 'Start Date: ';
+
+    const startDateInput = document.createElement('input');
+    startDateInput.setAttribute('type', 'date');
+    startDateInput.setAttribute('id', 'start-date');
+
+    //End Date
+    const endDateLabel = document.createElement('label');
+    endDateLabel.setAttribute('type', 'date');
+    endDateLabel.textContent = 'End Date: ';
+
+    const endDateInput = document.createElement('input');
+    endDateInput.setAttribute('type', 'date');
+    endDateInput.setAttribute('id', 'end-date');
+
+    //Filter button
+    const filterButton = doc.createElement('button');
+    filterButton.textContent = 'Filter By Date';
+    filterButton.addEventListener('click', () => {
+        const startDate = new Date(startDateInput.value);
+        const endDate = new Date(endDateInput.value);
+        const filteredTransactions = filterTransactionsByDate(transactions, startDate, endDate);
+        displayTransactions(filteredTransactions);
+    });
+
+    filterSection.appendChild(startDateLabel);
+    filterSection.appendChild(startDateInput);
+    filterSection.appendChild(endDateLabel);
+    filterSection.appendChild(endDateInput);
+    filterSection.appendChild(filterButton);
+    mainInfoBox.appendChild(filterSection);
+
+    displayTransactions(transactions);
+}
+
+//transaction filter by date
+function filterTransactionsByDate(transactions, startDate, endDate) {
+    return transactions.filter(transaction => {
+        const transactionDate = new Date(transaction.date);
+        return transactionDate >= startDate && transactionDate <= endDate;
+    });
+}
+
+//display transations
+function displayTransactions() {
+    const mainInfoBox = document.querySelector('.main-info-box');
+
+    transactions.forEach(transaction => {
+        let card = document.createElement('section');
+
+        let date = document.createElement('p');
+        date.textContent = `${transaction.data}`;
+
+        let amount = document.createElement('p');
+        amount.textContent = `$${transaction.amount.toFixed(2)}`;
+
+        let category = document.createElement('p');
+        category.textContent = `${transaction.category}`;
+
+        card.appendChild(date);
+        card.appendChild(amount);
+        card.appendChild(category);
+        mainInfoBox.appendChild(card);
+    });
 }
 
 function createExpenseFillableForm() {
